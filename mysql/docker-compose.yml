@@ -1,0 +1,20 @@
+version: '3.3'
+
+services: 
+    mysql_container:
+        container_name: mysql_container
+        image: mysql:5.7
+        restart: always
+        volumes:
+            - dev-db:/var/lib/mysql
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_DATABASE: bot_database
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: root
+
+volumes: 
+    dev-db:
+        driver: local
